@@ -28,11 +28,11 @@ class DataBase:
     def __init__(self):
         try:
             LOGS.info("Trying Connect With Redis database")
-            redis_info = "redis-10802.c330.asia-south1-1.gce.redns.redis-cloud.com"
+            redis_info = Var.REDIS_URI.split(":")
             self.dB = Redis(
                 host=redis_info[0],
                 port=redis_info[1],
-                password= "rOvg9VosqTpuE2bcX7sPVDAvuERbezEV",
+                password=Var.REDIS_PASS,
                 charset="utf-8",
                 decode_responses=True,
             )
@@ -73,7 +73,7 @@ class DataBase:
         self.dB.set("BUTTON_UPLOAD", str(data))
 
     def is_button_upload(self):
-        return self.cache.get("BUTTON_UPLOAD") or True
+        return self.cache.get("BUTTON_UPLOAD") or False
 
     def is_anime_uploaded(self, name):
         data = self.cache.get("ANIMES_UPLOADED") or []
