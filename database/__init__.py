@@ -28,11 +28,11 @@ class DataBase:
     def __init__(self):
         try:
             LOGS.info("Trying Connect With Redis database")
-            redis_info = Var.REDIS_URI.split(":")
+            redis_info = "redis-10802.c330.asia-south1-1.gce.redns.redis-cloud.com"
             self.dB = Redis(
                 host=redis_info[0],
                 port=redis_info[1],
-                password=Var.REDIS_PASS,
+                password= "rOvg9VosqTpuE2bcX7sPVDAvuERbezEV",
                 charset="utf-8",
                 decode_responses=True,
             )
