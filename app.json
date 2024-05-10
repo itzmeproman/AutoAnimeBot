@@ -9,22 +9,22 @@
     "env": {
         "API_ID": {
             "description": "You api id, from my.telegram.org",
-            "value": ""
+            "value": "21310924"
         },
 
         "API_HASH": {
             "description": "You api hash, from my.telegram.org",
-            "value": "873f11d08a9625aa13e75a7f1536657f"
+            "value": "fa4c3f582286d969ab1d08449e9533e8"
         },
 
         "BOT_TOKEN": {
             "description": "Make a bot from @BotFather, and enter it's api token here.",
-            "value": ""
+            "value": "6030047721:AAGRa6fQdMC8byhuYhDBimuU4C-xZ3JI7ic"
         },
 
         "OWNER": {
             "description": "Get ur Id Of Telegram nd Paste Here.",
-            "value": ""
+            "value": "6072442458"
         },
 
         "REDIS_URI": {
@@ -39,22 +39,22 @@
 
         "MAIN_CHANNEL": {
             "description": "Your Main Channel",
-            "value": ""
+            "value": "-1002140884022"
         },
 
         "BACKUP_CHANNEL": {
             "description": "If You Want Button Upload On Main Channel Don't Forget To Add Backup Channel becoz anime will be save in backup channel",
-            "value": ""
+            "value": "-1002106668069"
         },
 
         "LOG_CHANNEL": {
             "description": "Channel ID Where You Can Check Status Of Tasks.",
-            "value": ""
+            "value": "-1002065149795"
         },
 
         "CLOUD_CHANNEL": {
             "description": "Channel ID Where Bot Will Upload Samples And Screen Shots.",
-            "value": ""
+            "value": "-1002065149795"
         },
 
         "SEND_SCHEDULE": {
@@ -71,12 +71,12 @@
 
         "THUMBNAIL": {
             "description": "Put Link of any picture.",
-            "value": "https://graph.org/file/ad1b25807b81cdf1dff65.jpg",
+            "value": "https://graph.org/file/4fa004087303b32a4f07d.jpg",
             "required": false
         },
         "CRF": {
             "description": "Less CRF == High Quality, More Size , More CRF == Low Quality, Less Size, CRF Range = 20-51",
-            "value": "27",
+            "value": "28",
             "required": false
         }
     }
