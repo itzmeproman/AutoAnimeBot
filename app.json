@@ -14,7 +14,7 @@
 
         "API_HASH": {
             "description": "You api hash, from my.telegram.org",
-            "value": ""
+            "value": "873f11d08a9625aa13e75a7f1536657f"
         },
 
         "BOT_TOKEN": {
