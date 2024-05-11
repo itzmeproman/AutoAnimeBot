@@ -103,7 +103,7 @@ class Tools:
     async def _poster(self, bot, anime_info):
         thumb = await self.cover_dl((await anime_info.get_cover()))
         caption = await anime_info.get_caption()
-        return await bot.upload_poster(thumb or "assest/poster_not_found.jpg", caption)
+        return await bot.upload_poster(thumb, caption)
 
     def init_dir(self):
         if not os.path.exists("thumb.jpg"):
