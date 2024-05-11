@@ -60,9 +60,9 @@ class SubsPlease:
             try:
                 f1080, f720 ,f480 = d1080.entries[i], d720.entries[i], d480.entries[i]
                 a1080, a720, a480= (anitopy.parse(f1080.title)).get("anime_title"), (anitopy.parse(f720.title)).get("anime_title"), (
-                    anitopy.parse(f720.title)
+                    anitopy.parse(f480.title)
                 ).get("anime_title")
-                if a1080 == a480:
+                if a1080 == a720 or a1080 == a480:
                     if "[Batch]" in f1080.title or "[Batch]" in f720.title or "[Batch]" in f480.title:
                         continue
                     uid = self.digest(f1080.title + f720.title + f480.title)
