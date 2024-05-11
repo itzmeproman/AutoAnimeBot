@@ -39,7 +39,9 @@ class AnimeInfo:
 〣 Next Airing Episode: {}
 〣 Next Airing Episode Date: {}
 ━━━━━━━━━━━━━━━**
-@Anime_Compass
+
+@Anime_Compass 🧭
+
 〣 #{}
 """
         self.proper_name = self.get_proper_name_for_func(name)
