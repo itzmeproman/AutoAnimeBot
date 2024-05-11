@@ -45,7 +45,7 @@ class SubsPlease:
 
     def rss_feed_data(self):
         try:
-            return parse("https://subsplease.org/rss/?r=1080"), parse("https://subsplease.org/rss/?r=720"), parse("https://subsplease.org/rss/?r=480p")
+            return parse("https://subsplease.org/rss/?r=1080"), parse("https://subsplease.org/rss/?r=720"), parse("https://subsplease.org/rss/?r=sd")
         except KeyboardInterrupt:
             self._exit()
         except BaseException:
@@ -53,21 +53,21 @@ class SubsPlease:
             return None, None
 
     def feed_optimizer(self):
-        d1080, d720, d480 = self.rss_feed_data()
-        if not d1080 or not d720 or not d480:
+        d1080, d720, dsd = self.rss_feed_data()
+        if not d1080 or not d720 or not dsd:
             return None
-        for i in range(min(len(d1080.entries), len(d720.entries), len(d480.entries)) - 1, -1, -1):
+        for i in range(min(len(d1080.entries), len(d720.entries), len(dsd.entries)) - 1, -1, -1):
             try:
-                f1080, f720 ,f480 = d1080.entries[i], d720.entries[i], d480.entries[i]
-                a1080, a720, a480= (anitopy.parse(f1080.title)).get("anime_title"), (anitopy.parse(f720.title)).get("anime_title"), (
-                    anitopy.parse(f480.title)
+                f1080, f720 ,fsd = d1080.entries[i], d720.entries[i], dsd.entries[i]
+                a1080, a720, asd= (anitopy.parse(f1080.title)).get("anime_title"), (anitopy.parse(f720.title)).get("anime_title"), (
+                    anitopy.parse(fsd.title)
                 ).get("anime_title")
-                if a1080 == a720 or a1080 == a480:
-                    if "[Batch]" in f1080.title or "[Batch]" in f720.title or "[Batch]" in f480.title:
+                if a1080 == a720 or a1080 == asd:
+                    if "[Batch]" in f1080.title or "[Batch]" in f720.title or "[Batch]" in fsd.title:
                         continue
-                    uid = self.digest(f1080.title + f720.title + f480.title)
+                    uid = self.digest(f1080.title + f720.title + fsd.title)
                     if not self.db.is_anime_uploaded(uid):
-                        return {"uid": uid, "1080p": f1080, "720p": f720, "480p": f480}
+                        return {"uid": uid, "1080p": f1080, "720p": f720, "480p": fsd}
             except BaseException:
                 LOGS.error(format_exc())
                 return None
