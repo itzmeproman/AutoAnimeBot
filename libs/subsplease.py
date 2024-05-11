@@ -53,7 +53,7 @@ class SubsPlease:
             return None, None
 
     def feed_optimizer(self):
-        d1080, d720 = self.rss_feed_data()
+        d1080, d720, d480 = self.rss_feed_data()
         if not d1080 or not d720 or not d480:
             return None
         for i in range(3, -1, -1):
