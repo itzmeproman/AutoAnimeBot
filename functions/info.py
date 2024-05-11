@@ -101,7 +101,7 @@ class AnimeInfo:
             anime_name = self.data.get("anime_title")
             if anime_name and self.data.get("episode_number"):
                 return (
-                    f"[S{self.data.get('anime_season') or 1}-{self.data.get('episode_number') or ''}] {(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}].mkv".replace(
+                    f"[S{self.data.get('anime_season') or 1}-{self.data.get('episode_number') or ''}] {(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}] @Anime_Compass.mkv".replace(
                         "‘", ""
                     )
                     .replace("’", "")
@@ -109,7 +109,7 @@ class AnimeInfo:
                 )
             if anime_name:
                 return (
-                    f"{(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}].mkv".replace(
+                    f"{(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}] @ANIME_Compass.mkv".replace(
                         "‘", ""
                     )
                     .replace("’", "")
