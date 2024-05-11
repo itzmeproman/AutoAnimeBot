@@ -115,6 +115,7 @@ class Bot(TelegramClient):
             file=file,
             caption=caption,
         )
+        papa = post.link
         return post
 
     async def is_joined(self, channel_id, user_id):
