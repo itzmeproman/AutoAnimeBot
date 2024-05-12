@@ -73,12 +73,12 @@ class AnimeInfo:
          except Exception as error:
             LOGS.error(str(error))
 
-       async def get_caption_main(self):
-            try:
-                if self.proper_name:
-                anime = await self.kitsu.search(self.proper_name)
+    async def get_caption_main(self):
+         try:
+             if self.proper_name:
+             anime = await self.kitsu.search(self.proper_name)
             # Assuming the latest episode is the current one (might not be accurate)
-                current_episode = anime.get("total_episodes") or "N/A"  # Use total episodes if available
+             current_episode = anime.get("total_episodes") or "N/A"  # Use total episodes if available
                 return self.CAPTION.format(
                 anime.get("english_title").strip() or self.data.get("anime_title"),
                 anime.get("type"),
@@ -87,7 +87,7 @@ class AnimeInfo:
                 "N/A",  # Still no way to get airing date with this approach
                 "".join(re.split("[^a-zA-Z]*", anime.get("english_title") or "")),
             )
-             except Exception as error:
+         except Exception as error:
         LOGS.error(str(error))
         return ""
 
