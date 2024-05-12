@@ -111,7 +111,7 @@ class Bot(TelegramClient):
 
     async def upload_poster(self, file, caption):
     # Upload the poster
-    post = await self.send_file(
+        post = await self.send_file(
         Var.MAIN_CHANNEL,
         file=file,
         caption=caption,
