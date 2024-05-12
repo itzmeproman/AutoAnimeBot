@@ -23,72 +23,21 @@ class AnimeInfo:
 @Anime_Compass 🧭
 
 〣 #{}"""
-        self.proper_name = self.get_proper_name_for_func(name)
-        self.name = name
-        self.data = anitopy.parse(name)
-
-    async def get_english(self):
-        anime_name = self.data.get("anime_title")
-        try:
-            anime = await self.kitsu.search(self.proper_name)
-            return anime.get("english_title").strip() or anime_name
-        except Exception as error:
-            LOGS.error(str(error))
-            return anime_name.strip()
-
-    async def get_poster(self):
-        try:
-            if self.proper_name:
-                anime_poster = await self.kitsu.search(self.proper_name)
-                return anime_poster.get("poster_img") or None
-        except Exception as error:
-            LOGS.error(str(error))
-
-    async def get_cover(self):
-        try:
-            if self.proper_name:
-                anime_poster = await self.kitsu.search(self.proper_name)
-                if anime_poster.get("anilist_id"):
-                    return anime_poster.get("anilist_poster")
-                return None
-        except Exception as error:
-            LOGS.error(str(error))
-
-    async def get_caption_main(self):
-        try:
-            if self.proper_name:
-                anime = await self.kitsu.search(self.proper_name)
-                # Assuming the latest episode is the current one (might not be accurate)
-                current_episode = anime.get("total_episodes") or "N/A"  # Use total episodes if available
-                return self.CAPTION.format(
-                    anime.get("english_title").strip() or self.data.get("anime_title"),
-                    anime.get("type"),
-                    ", ".join(anime.get("genres")),
-                    current_episode,
-                    "N/A",  # Still no way to get airing date with this approach
-                    "".join(re.split("[^a-zA-Z]*", anime.get("english_title") or "")),
-                )
-        except Exception as error:
-            LOGS.error(str(error))
-            return ""
-
-    self.CAPTION = """
+        self.CAPTION = """
 **〄 {} • {}
 ━━━━━━━━━━━━━━━
-⬡ Quality: 480p ,720p, 1080p
+⬡ Quality: 720p, 1080p
 ⬡ Audio: Japanese [English Subtitles]
 ⬡ Genres: {}
 ━━━━━━━━━━━━━━━
 〣 Next Airing Episode: {}
 〣 Next Airing Episode Date: {}
 ━━━━━━━━━━━━━━━**
-
-@Anime_Compass 🧭
-
-〣 #{}"""
-    self.proper_name = self.get_proper_name_for_func(name)
-    self.name = name
-    self.data = anitopy.parse(name)
+〣 #{}
+"""
+        self.proper_name = self.get_proper_name_for_func(name)
+        self.name = name
+        self.data = anitopy.parse(name)
 
     async def get_english(self):
         anime_name = self.data.get("anime_title")
@@ -145,7 +94,7 @@ class AnimeInfo:
             anime_name = self.data.get("anime_title")
             if anime_name and self.data.get("episode_number"):
                 return (
-                    f"[AC🧭][S{self.data.get('anime_season') or 1}-{self.data.get('episode_number') or ''}] {(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}] @Anime_Compass.mkv".replace(
+                    f"[S{self.data.get('anime_season') or 1}-{self.data.get('episode_number') or ''}] {(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}].mkv".replace(
                         "‘", ""
                     )
                     .replace("’", "")
@@ -153,7 +102,7 @@ class AnimeInfo:
                 )
             if anime_name:
                 return (
-                    f"{(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}] @ANIME_Compass.mkv".replace(
+                    f"{(await self.get_english())} [{self.data.get('video_resolution').replace('p', 'px264' if original else 'px265') or ''}].mkv".replace(
                         "‘", ""
                     )
                     .replace("’", "")
