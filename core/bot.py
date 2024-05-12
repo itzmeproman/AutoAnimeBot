@@ -125,7 +125,7 @@ class Bot(TelegramClient):
 
         # Construct temporary link (usable for public channels with usernames)
             post_link = ""
-        return
+                return
         if hasattr(Var, 'MAIN_CHANNEL_USERNAME'):
             channel_username = Var.MAIN_CHANNEL_USERNAME
             post_link = f"https://t.me/c/2140884022/{message_id}"
