@@ -134,9 +134,8 @@ class Bot(TelegramClient):
 
                 # Send the poster to the other channel with caption and button
                 try:
-                    await self.bot.send_photo(
+                    await self.bot.send_file(
                         chat_id=Var.MAIN_ONGOING,
-                        photo=post.photo[-1].file_id,  # Use the highest quality photo
                         caption=other_channel_caption,
                         reply_markup=self.get_download_button(post_link),
                     )
