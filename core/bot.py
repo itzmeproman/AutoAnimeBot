@@ -110,12 +110,32 @@ class Bot(TelegramClient):
         return post
 
     async def upload_poster(self, file, caption):
-        post = await self.send_file(
-            Var.MAIN_CHANNEL,
-            file=file,
-            caption=caption,
-        )
-        return post
+    # Upload the poster
+    post = await self.send_file(
+        Var.MAIN_CHANNEL,
+        file=file,
+        caption=caption,
+    )
+
+    # Try to get message ID (assuming bot has admin privileges)
+    try:
+        updates = await self.bot.get_updates(allowed_updates=["message"])
+        # Assuming the most recent update is the uploaded post
+        message_id = updates[-1].message.message_id
+
+        # Since it's a private channel, username might not be available
+        if hasattr(Var, 'MAIN_CHANNEL_USERNAME'):
+            channel_username = Var.MAIN_CHANNEL_USERNAME
+            post_link = f"https://t.me/c/2140884022/{message_id}"
+        else:
+            print("Username unavailable for private channel. Temporary link generation not possible.")
+
+    except Exception as e:
+        print(f"Error retrieving message ID: {e}")
+
+    return  # No need to return the post object since there's no direct link
+
+
 
     async def is_joined(self, channel_id, user_id):
         try:
