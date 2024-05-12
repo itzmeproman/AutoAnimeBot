@@ -157,8 +157,6 @@ def get_download_button(self, link):
     else:
         return
 
-    
-    return  # No need to return the post object since there's no direct link
 
 
 
