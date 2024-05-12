@@ -73,7 +73,7 @@ class AnimeInfo:
          except Exception as error:
             LOGS.error(str(error))
 
-        async def get_caption_main(self):
+       async def get_caption_main(self):
             try:
                 if self.proper_name:
                 anime = await self.kitsu.search(self.proper_name)
