@@ -87,7 +87,7 @@ class AnimeInfo:
                 "N/A",  # Still no way to get airing date with this approach
                 "".join(re.split("[^a-zA-Z]*", anime.get("english_title") or "")),
             )
-            except Exception as error:
+             except Exception as error:
         LOGS.error(str(error))
         return ""
 
