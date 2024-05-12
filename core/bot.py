@@ -156,8 +156,6 @@ def get_download_button(self, link):
         )
     else:
         return
-    except Exception as e:
-        print(f"Error retrieving message ID: {e}")
 
     
     return  # No need to return the post object since there's no direct link
