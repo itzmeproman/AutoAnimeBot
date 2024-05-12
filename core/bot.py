@@ -123,14 +123,14 @@ class Bot(TelegramClient):
             updates = await self.bot.get_updates(allowed_updates=["message"])
             message_id = updates[-1].message.message_id
 
-        # Construct temporary link (usable for public channels with usernames)
+        # Construct temporary link (usable for   channels with usernames)
             post_link = ""
         if hasattr(Var, 'MAIN_CHANNEL_USERNAME'):
             channel_username = Var.MAIN_CHANNEL_USERNAME
             post_link = f"https://t.me/c/2140884022/{message_id}"
 
             other_channel_caption = f"{caption_main}"
-            return post_link
+                return post_link
         # Send the poster to the other channel with caption and button
   
         try:
