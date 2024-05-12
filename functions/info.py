@@ -55,9 +55,9 @@ class AnimeInfo:
             LOGS.error(str(error))
             return anime_name.strip()
 
-    async def get_poster(self):
+    async def get_poster(self)
             try:
-                if self.proper_name:
+              if self.proper_name:
                 anime_poster = await self.kitsu.search(self.proper_name)
                 return anime_poster.get("poster_img") or None
         except Exception as error:
