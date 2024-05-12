@@ -120,15 +120,14 @@ class Bot(TelegramClient):
     # Try to get message ID (assuming bot has admin privileges)
     try:
         updates = await self.bot.get_updates(allowed_updates=["message"])
-        # Assuming the most recent update is the uploaded post
         message_id = updates[-1].message.message_id
 
-        # Since it's a private channel, username might not be available
+        # Construct temporary link (usable for public channels with usernames)
+        post_link = ""
         if hasattr(Var, 'MAIN_CHANNEL_USERNAME'):
             channel_username = Var.MAIN_CHANNEL_USERNAME
             post_link = f"https://t.me/c/2140884022/{message_id}"
-        else:
-            print("Username unavailable for private channel. Temporary link generation not possible.")
+
     other_channel_caption = f"{caption_main}"
 
         # Send the poster to the other channel with caption and button
