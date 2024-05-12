@@ -128,9 +128,10 @@ class Bot(TelegramClient):
             channel_username = Var.MAIN_CHANNEL_USERNAME
             post_link = f"https://t.me/c/2140884022/{message_id}"
 
-    other_channel_caption = f"{caption_main}"
+        other_channel_caption = f"{caption_main}"
 
         # Send the poster to the other channel with caption and button
+  
         try:
             await self.bot.send_photo(
                 chat_id=Var.MAIN_ONGOING,
