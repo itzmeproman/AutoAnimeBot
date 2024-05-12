@@ -130,7 +130,7 @@ class Bot(TelegramClient):
             post_link = f"https://t.me/c/2140884022/{message_id}"
 
             other_channel_caption = f"{caption_main}"
-                return post_link
+                return 
         # Send the poster to the other channel with caption and button
   
         try:
