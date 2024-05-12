@@ -129,10 +129,37 @@ class Bot(TelegramClient):
             post_link = f"https://t.me/c/2140884022/{message_id}"
         else:
             print("Username unavailable for private channel. Temporary link generation not possible.")
+    other_channel_caption = f"{caption_main}"
 
+        # Send the poster to the other channel with caption and button
+        try:
+            await self.bot.send_photo(
+                chat_id=Var.MAIN_ONGOING,
+                photo=post.photo[-1].file_id,  # Use the highest quality photo
+                caption=other_channel_caption,
+                reply_markup=self.get_download_button(post_link),
+            )
+            print("Successfully sent poster to other channel.")
+        except Exception as e:
+            print(f"Error sending poster to other channel: {e}")
+
+    except Exception as e:
+        print(f"Error retrieving message ID or sending to other channel: {e}")
+
+    return  # No need to return the post object
+
+# Function to create the download button (replace with your library's implementation)
+def get_download_button(self, link):
+    if link:  # Only create button if there's a link
+        return InlineKeyboardMarkup.from_button(
+            InlineKeyboardButton(text="Click here to download", url=post_link)
+        )
+    else:
+        return
     except Exception as e:
         print(f"Error retrieving message ID: {e}")
 
+    
     return  # No need to return the post object since there's no direct link
 
 
