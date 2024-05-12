@@ -125,13 +125,12 @@ class Bot(TelegramClient):
 
         # Construct temporary link (usable for public channels with usernames)
             post_link = ""
-                  return
         if hasattr(Var, 'MAIN_CHANNEL_USERNAME'):
             channel_username = Var.MAIN_CHANNEL_USERNAME
             post_link = f"https://t.me/c/2140884022/{message_id}"
 
-        other_channel_caption = f"{caption_main}"
-
+            other_channel_caption = f"{caption_main}"
+            return post_link
         # Send the poster to the other channel with caption and button
   
         try:
