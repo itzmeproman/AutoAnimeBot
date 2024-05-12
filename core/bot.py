@@ -125,7 +125,7 @@ class Bot(TelegramClient):
 
         # Construct temporary link (usable for public channels with usernames)
             post_link = ""
-                return
+                  return
         if hasattr(Var, 'MAIN_CHANNEL_USERNAME'):
             channel_username = Var.MAIN_CHANNEL_USERNAME
             post_link = f"https://t.me/c/2140884022/{message_id}"
@@ -147,8 +147,7 @@ class Bot(TelegramClient):
 
     except Exception as e:
         print(f"Error retrieving message ID or sending to other channel: {e}")
-
-    return  # No need to return the post object
+# No need to return the post object
 
 # Function to create the download button (replace with your library's implementation)
 def get_download_button(self, link):
@@ -157,7 +156,7 @@ def get_download_button(self, link):
             InlineKeyboardButton(text="Click here to download", url=post_link)
         )
     else:
-        return
+              return
 
 
 
